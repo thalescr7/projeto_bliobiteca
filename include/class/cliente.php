@@ -1,4 +1,18 @@
-public function getId(){
+<?php
+    class Cliente{
+        private $id;
+        private $nome;
+        private $telefone;
+        private $email;
+        private $cpf;
+        private $rg;
+        private $data_nascimento;
+        private $data_inclusao;
+        private $data_alteracao;
+        private $inclusao_funcionario_id;
+        private $alteracao_funcionario_id;
+    
+    public function getId(){
         return $this->id;
     }
     public function setId($id){
@@ -64,3 +78,4 @@ public function getId(){
     public function setAlteracao_funcionario_id($alteracao_funcionario_id){
         $this->alteracao_funcionario_id = $alteracao_funcionario_id;
     }
+}

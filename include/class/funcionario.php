@@ -1,4 +1,16 @@
-public function getId(){
+<?php
+    class Funcionario{
+        private $id;
+        private $nome;
+        private $cpf;
+        private $telefone;
+        private $senha;
+        private $email;
+        private $data_inclusao;
+        private $data_alteracao;
+        private $inclusao_funcionario_id;
+        private $alteracao_funcionario_id;
+    public function getId(){
         return $this->id;
     }
     public function setid($id){
@@ -76,3 +88,4 @@ public function getId(){
     public function setAlteracaoFuncionario_id($alteracao_funcionario_id){
         $this->alteracao_funcionario_id = $alteracao_funcionario_id;
     }
+}
