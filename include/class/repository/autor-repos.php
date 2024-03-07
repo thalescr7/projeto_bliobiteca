@@ -12,8 +12,8 @@ class AutorRepository implements Repository{
             $autor = new Autor;
             $autor->setId($row->id);
             $autor->setNome($row->nome);
-            $autor->setData_inclusao($row->dt_inclusao);
-            $autor->setData_alteracao($row->dt_alteracao);
+            $autor->setData_inclusao($row->data_inclusao);
+            $autor->setData_alteracao($row->data_alteracao);
             $autor->setinclusao_funcionario_id($row->inclusao_funcionario_id);
             $autor->setAlteracao_funcionario_id($row->alteracao_funcionario_id);
             $list[] = $autor;
@@ -32,8 +32,8 @@ class AutorRepository implements Repository{
             $autor = new Autor;
             $autor->setId($row->id);
             $autor->setNome($row->nome);
-            $autor->setData_inclusao($row->dt_inclusao);
-            $autor->setData_alteracao($row->dt_alteracao);
+            $autor->setData_inclusao($row->data_inclusao);
+            $autor->setData_alteracao($row->data_alteracao);
             $autor->setinclusao_funcionario_id($row->inclusao_funcionario_id);
             $autor->setAlteracao_funcionario_id($row->alteracao_funcionario_id);
             return $autor;

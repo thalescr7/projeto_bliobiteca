@@ -27,11 +27,15 @@ class LivroRepository implements Repository{
         $query->bindParam(":id",$id);
         $query->execute();
     
-        if($query->rowCount() > 0){
+        if($query->rowCount() > 0){ 
             $row = $query->fetch(PDO::FETCH_OBJ);
             $livro = new Autor;
             $livro->setId($row->id);
-            $livro->setNome($row->nome);
+            $livro->setTitulo($row->titulo);
+            $livro->setAno($row->ano);
+            $livro->setGenero($row->genero);
+            $livro->setIsbn($row->isbn);
+            $livro->setAutorId($row->autor_id);
             $livro->setData_inclusao($row->dt_inclusao);
             $livro->setData_alteracao($row->dt_alteracao);
             $livro->setinclusao_funcionario_id($row->inclusao_funcionario_id);
