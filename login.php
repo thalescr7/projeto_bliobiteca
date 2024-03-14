@@ -14,7 +14,7 @@ if(Auth::isAuthenticated()){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description"
-        content="Faça login ou cadastre-se no Al'one, onde tudo é possivel para o motorista em um só lugar">
+        content="Faça login ou cadastre-se na Biobliteca">
     <title>Login</title>
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style/index.css">
@@ -30,10 +30,10 @@ if(Auth::isAuthenticated()){
             <h1>Bliobiteca</h1>
             <p>Tão completo quanto a Biblioteca de Alexandria</p><br>
             <div class="formulario">
-                <form method="POST" id="loginForm">
+                <form method="POST" id="loginForm" action="logar.php">
                     <div class="coolinput">
                         <label for="cpf" class="text">CPF:</label>
-                        <input type="text" id="cpf" placeholder="000.000.000-00" name="email" class="input" required>
+                        <input type="text" id="cpf" placeholder="000.000.000-00" name="cpf" class="input" required>
                     </div>
                     <div class="group">
                         <label class="container">
@@ -50,7 +50,7 @@ if(Auth::isAuthenticated()){
                                 </path>
                             </svg>
                         </label>
-                        <input class="input" type="password" name="password" id="password" placeholder="senha">
+                        <input class="input" type="password" name="senha" id="password" placeholder="senha">
                     </div><br>
                     <button type="submit" id="entrar">Entrar</button>
                     <p>Não tem uma conta? <strong onclick="showCard()">Cadastre-se</strong></p>

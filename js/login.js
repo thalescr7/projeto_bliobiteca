@@ -1,12 +1,4 @@
-const formulario = document.getElementById('loginForm')
-formulario.addEventListener('submit', function (event) {
-    event.preventDefault()
-    let cpf = document.getElementById('cpf').value;
-    let senha = document.getElementById('password').value;
-    
-    
-
-})
+const formulario = document.querySelector('#loginForm')
 document.getElementById('togglePassword').addEventListener('click', function () {
     var passwordInput = document.getElementById('password');
     if (passwordInput.type === 'password') {
