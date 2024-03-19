@@ -1,11 +1,11 @@
-<!-- <?php
+ <?php
 include_once('include/factory.php');
 
 if (!Auth::isAuthenticated()) {
     header("Location: login.php");
     exit();
 }
-?>  -->
+?> 
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -21,25 +21,12 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
-    <header>
-        <nav>
-            <div id="headTitle">
-                <img src="img/book.png" alt="">
-                <h1>Biobliteca</h1>
-            </div>
-            <div id="ul">
-                <a href="#">Produtos</a>
-                <a href="#">Usuarios</a>
-                <a href="#">Emprestimos</a>
-            </div>
-        </nav>
-        <a href="logout.php" id="sair">Sair</a>
-    </header>
+    <?php include("include/menu.php")?>
     <main>
         <section class="container">
-            <h1>Bem vindo a Biobliteca!</h1>
+            <h1>Bem vindo a Bliobliteca!</h1>
             <div id="jobs">
-                <div class="block b1" onclick="link('asu.html')">
+                <div class="block b1" onclick="link('autorList.php')">
                     <p>Autor</p>
                 </div>
 
@@ -61,7 +48,7 @@ if (!Auth::isAuthenticated()) {
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
         crossorigin="anonymous"></script>
-    <script src="js/home.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>
