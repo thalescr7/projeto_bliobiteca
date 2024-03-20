@@ -4,7 +4,7 @@
     margin: 0px;
     box-sizing: border-box;
 }
-#listagemAutor{
+#listagem{
     display: flex;
     align-items: center;
     justify-content: space-between;

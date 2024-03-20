@@ -23,9 +23,9 @@ if (!Auth::isAuthenticated()) {
   <?php include("include/menu.php") ?>
   <main>
     <div class="container">
-      <div id="listagemAutor">
+      <div id="listagem">
         <h2>LIVROS > LISTAGEM</h2>
-        <button class="novo">Novo Autor</button>
+        <button class="novo">Novo Livro</button>
       </div>
       <div class="table-responsive">
         <table class="table">
