@@ -30,15 +30,15 @@ if (!Auth::isAuthenticated()) {
                     <p>Autor</p>
                 </div>
 
-                <div class="block b2">
+                <div class="block b2" onclick="link('livroList.php')">
                     <p>Livros</p>
                 </div>
 
-                <div class="block b3">
-                    <p>Cadastrar Clientes</p>
+                <div class="block b3" onclick="link('clienteList.php')">
+                    <p>Clientes</p>
                 </div>
 
-                <div class="block b4">
+                <div class="block b4" onclick="link('funcioList.php')">
                     <p>Funcionarios</p>
                 </div>
 

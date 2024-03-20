@@ -12,7 +12,7 @@ if (!Auth::isAuthenticated()) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AUTOR > LISTAGEM</title>
+  <title>Livro listagem</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/listagensIndx.css">
@@ -24,7 +24,7 @@ if (!Auth::isAuthenticated()) {
   <main>
     <div class="container">
       <div id="listagemAutor">
-        <h2>AUTORES > LISTAGEM</h2>
+        <h2>LIVROS > LISTAGEM</h2>
         <button class="novo">Novo Autor</button>
       </div>
       <div class="table-responsive">
@@ -32,17 +32,23 @@ if (!Auth::isAuthenticated()) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Nome</th>
+              <th>Titulo</th>
+              <th>Ano</th>
+              <th>Genero</th>
+              <th>ISBN</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
               <?php
-              foreach(AutorRepository::listAll() as $autor){
+              foreach(LivroRepository::listAll() as $livro){
               ?>
               <tr>
-                <td><?php echo $autor->getId(); ?></td>
-                <td><?php echo $autor->getNome(); ?></td>
+                <td><?php echo $livro->getId(); ?></td>
+                <td><?php echo $livro->getTitulo(); ?></td>
+                <td><?php echo $livro->getAno(); ?></td>
+                <td><?php echo $livro->getGenero(); ?></td>
+                <td><?php echo $livro->getIsbn(); ?></td>
                 <td>
                   <a href="#" id="editar">Editar</a>
                   <a href="#" id="deletar">Deletar</a>

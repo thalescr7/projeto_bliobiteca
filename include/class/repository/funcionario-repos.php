@@ -3,7 +3,7 @@
 class FuncionarioRepository implements Repository{
     public static function listAll(){
         $db = DB::getInstance();
-        $sql = "SELECT * FROM funcionario WHERE id = :id";
+        $sql = "SELECT * FROM funcionario";
         $query = $db->prepare($sql);
         $query->execute();
 

@@ -3,7 +3,7 @@
 class ClienteRepository implements Repository{
     public static function listAll(){
         $db = DB::getInstance();
-        $sql = "SELECT * FROM cliente WHERE id = :id";
+        $sql = "SELECT * FROM cliente";
         $query = $db->prepare($sql);
         $query->execute();
 
