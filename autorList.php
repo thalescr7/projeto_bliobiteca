@@ -25,7 +25,7 @@ if (!Auth::isAuthenticated()) {
     <div class="container">
       <div id="listagem">
         <h2>AUTORES > LISTAGEM</h2> 
-        <button class="novo">Novo Autor</button>
+        <button class="novo" onclick="link('autorNovo.php')">Novo Autor</button>
       </div>
       <div class="table-responsive">
         <table class="table">
@@ -44,7 +44,7 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $autor->getId(); ?></td>
                 <td><?php echo $autor->getNome(); ?></td>
                 <td>
-                  <a href="#" id="editar">Editar</a>
+                  <a href="autorEditar.php?id=<?php echo $autor->getId(); ?>" id="editar">Editar</a>
                   <a href="#" id="deletar">Deletar</a>
                 </td>
               </tr>
