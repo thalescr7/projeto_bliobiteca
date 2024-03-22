@@ -97,8 +97,10 @@ class FuncionarioRepository implements Repository{
         $query->bindValue(":telefone",$obj->getTelefone());
         $query->bindValue(":senha",$obj->getSenha());
         $query->bindValue(":email",$obj->getEmail());
-        $query->bindValue(":alteracao_inclusao",$obj->getDataInclusao());
-        $query->bindValue(":alteracao_funcionario_id",$obj->getInclusaoFuncionarioId());
+        $query->bindValue(":data_alteracao",$obj->getDataAlteracao());
+        $query->bindValue(":alteracao_funcionario_id",$obj->getAlteracaoFuncionarioId());
+        $query->bindValue(":id",$obj->getId());
+        $query->execute();
     }
     public static function delete($id){
         $db = DB::getInstance();
