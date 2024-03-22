@@ -1,10 +1,11 @@
 <?php
-include_once('include/factory.php');
+include_once('../include/factory.php');
 
 if (!Auth::isAuthenticated()) {
-    header("Location: login.php");
-    exit();
+  header("Location: ../login/login.php");
+  exit();
 }
+
 
 $user = Auth::getUser();
 

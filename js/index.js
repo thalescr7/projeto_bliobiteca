@@ -1,3 +1,3 @@
 function link(paraOnde){
-    window.location = paraOnde;
+    window.location.replace(paraOnde);
 }

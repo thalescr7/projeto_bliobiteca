@@ -1,8 +1,8 @@
 <?php
-include_once('include/factory.php');
+include_once('../include/factory.php');
 
 if (!Auth::isAuthenticated()) {
-  header("Location: login.php");
+  header("Location: ../login/login.php");
   exit();
 }
 ?>
