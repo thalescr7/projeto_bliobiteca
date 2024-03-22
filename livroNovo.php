@@ -32,6 +32,30 @@ if (!Auth::isAuthenticated()) {
                             <input type="text" name="titulo" id="titulo" class="form-control">
                         </div>
                         <div class="md-3">
+                            <label for="ano" class="form-label">Ano</label>
+                            <input type="text" name="ano" id="ano" class="form-control">
+                        </div> 
+                        <div class="md-3">
+                            <label for="genero" class="form-label">Genero</label>
+                            <input type="text" name="genero" id="genero" class="form-control">
+                        </div> 
+                        <div class="md-3">
+                            <label for="isbn" class="form-label">Isbn</label>
+                            <input type="text" name="isbn" id="isbn" class="form-control">
+                        </div>
+                        <div class="md-3">
+                            <label for="autor" class="form-label">Autor</label>
+                            <select name="autor" id="autor">
+                                <?php
+                                    foreach(AutorRepository::listAll() as $autor){
+                                ?>
+                                <option value="<?php echo $autor->getId();?>">
+                                        <?php echo $autor->getNome() ?>
+                                </option>
+                                <?php } ?>
+                            </select>
+                        </div> 
+                        <div class="md-3">
                             <button type="submit" class="enviar">Enviar</button>
                         </div>
                     </form>

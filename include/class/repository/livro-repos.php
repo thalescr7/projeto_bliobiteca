@@ -40,8 +40,8 @@ class LivroRepository implements Repository{
             $livro->setGenero($row->genero);
             $livro->setIsbn($row->isbn);
             $livro->setAutorId($row->autor_id);
-            $livro->setDataInclusao($row->dt_inclusao);
-            $livro->setDataAlteracao($row->dt_alteracao);
+            $livro->setDataInclusao($row->data_inclusao);
+            $livro->setDataAlteracao($row->data_alteracao);
             $livro->setinclusaoFuncionarioId($row->inclusao_funcionario_id);
             $livro->setAlteracaoFuncionarioId($row->alteracao_funcionario_id);
             return $livro;
@@ -68,7 +68,7 @@ class LivroRepository implements Repository{
     }
     public static function update($obj){
         $db = DB::getInstance();
-        $sql = "UPDATE livro SET titulo = :titulo, ano = :ano, genero = :genero, isbn = :isbn, autor_id = :autor_id data_alteracao = :data_alteracao, alteracao_funcionario_id = :alteracao_funcionario_id WHERE id = :id";
+        $sql = "UPDATE livro SET titulo = :titulo, ano = :ano, genero = :genero, isbn = :isbn, autor_id = :autor_id, data_alteracao = :data_alteracao, alteracao_funcionario_id = :alteracao_funcionario_id WHERE id = :id";
         $query = $db->prepare($sql);
         $query->bindValue(":titulo",$obj->getTitulo());
         $query->bindValue(":ano",$obj->getAno());

@@ -9,26 +9,30 @@ if (!Auth::isAuthenticated()) {
 $user = Auth::getUser();
 
 if(!isset($_POST['nome'])){
-    header("Location: autorNovo.php");
+    header("Location: livroNovo.php");
     exit();
 }
 if($_POST["nome" == ''] || $_POST["nome" == null]){
-    header("Location: autorNovo.php");
+    header("Location: livroNovo.php");
     exit();
 }
 
-$autor = Factory::autor();
+$livro = Factory::livro(); 
 
-$autor->setNome($_POST['nome']);
-$autor->setinclusaoFuncionarioId($user->getID());
-$autor->setDataInclusao(date('Y-d-m H:i:s'));
+$livro->setTitulo($_POST['titulo']);
+$livro->setAno($_POST['ano']);
+$livro->setGenero($_POST['genero']);
+$livro->setIsbn($_POST['isbn']);
+$livro->setAutorId($_POST['autor']);
+$livro->setinclusaoFuncionarioId($user->getID());
+$livro->setDataInclusao(date('Y-d-m H:i:s'));
 
-$autor_retorno = AutorRepository::insert($autor);
+$livro_retorno = LivroRepository::insert($livro);
 
-if($autor_retorno > 0){
-    header("Location: autorEditar.php?id=".$autor_retorno);
+if($livro_retorno > 0){
+    header("Location: livroEditar.php?id=".$livro_retorno);
     exit();
 }
 
-header("Location: autorNovo.php");
+header("Location: livroNovo.php");
     exit();
