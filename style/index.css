@@ -63,11 +63,6 @@ header a:hover{
   font-family: var(--fonte-destaque);
   cursor: pointer;
 }
-#headTitle a{
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
 #headTitle img{
   width: 30px;
 }
