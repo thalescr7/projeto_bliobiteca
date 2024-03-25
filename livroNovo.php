@@ -23,7 +23,7 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php") ?>
     <main>
         <div class="container">
-            <h2>LIVRO > Novo</h2>
+            <h2><strong onclick="link('livroList.php')">LIVRO</strong> > Novo</h2>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="livroNovoPost.php" method="POST">
