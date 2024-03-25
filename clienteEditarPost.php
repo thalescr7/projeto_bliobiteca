@@ -9,16 +9,16 @@ if (!Auth::isAuthenticated()) {
 $user = Auth::getUser();
 
 if(!isset($_POST['id'])){
-    header("location: clienteList.php?1");
+    header("location: clienteList.php");
     exit();
 }
 if($_POST["id"] == "" || $_POST["id"] == null){
-    header("location: clienteList.php?2");
+    header("location: clienteList.php");
     exit();
 }
 $cliente = ClienteRepository::get($_POST["id"]);
 if(!$cliente){
-    header("location: clienteList.php?3");
+    header("location: clienteList.php");
     exit();
 }
 

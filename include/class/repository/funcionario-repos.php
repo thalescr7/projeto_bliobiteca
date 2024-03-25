@@ -74,7 +74,7 @@ class FuncionarioRepository implements Repository{
     }
     public static function insert($obj){
         $db = DB::getInstance() ;//cria uma instancia da classe db (conexão com o bd).]
-        $sql = "INSERT INTO funcionario (nome, cpf, telefone, senha, email, data_inclusao, inclusao_funcionario_id) VALUES(:nome, :cpf, :telefone, :senha, :email, :data_inclusao, : inclusao_funcionario_id)";
+        $sql = "INSERT INTO funcionario (nome, cpf, telefone, senha, email, data_inclusao, inclusao_funcionario_id) VALUES(:nome, :cpf, :telefone, :senha, :email, :data_inclusao, :inclusao_funcionario_id)";
 
         $query = $db->prepare($sql);//prepara a query para ser executada.
         $query->bindValue(":nome", $obj->getNome());
@@ -82,8 +82,8 @@ class FuncionarioRepository implements Repository{
         $query->bindValue(":telefone", $obj->getTelefone());
         $query->bindValue(":senha",$obj->getSenha());
         $query->bindValue(":email", $obj->getEmail());
-        $query->bindValue(":data_inclusao", $obj->getNome());
-        $query->bindValue(":inclusao_funcionario_id", $obj->getNome());
+        $query->bindValue(":data_inclusao", $obj->getDataInclusao());
+        $query->bindValue(":inclusao_funcionario_id", $obj->getInclusaoFuncionarioId());
         $query->execute();
         $id = $db->lastInsertId();//recupera o último Id inserido no BD.
         return $id;
