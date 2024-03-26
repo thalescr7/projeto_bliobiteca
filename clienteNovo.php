@@ -26,6 +26,7 @@ if (!Auth::isAuthenticated()) {
     <main>
         <div class="container">
             <h2>CLIENTE > Novo</h2>
+            <button class="voltar"><a href="clienteList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="clienteNovoPost.php" method="POST">

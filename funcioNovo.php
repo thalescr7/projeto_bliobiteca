@@ -16,7 +16,7 @@ if (!Auth::isAuthenticated()) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="style/index.css">
-    <link rel="stylesheet" href="style/novoAutor.css">
+    <link rel="stylesheet" href="style/novo.css">
 </head>
 
 <body>
@@ -24,6 +24,7 @@ if (!Auth::isAuthenticated()) {
     <main>
         <div class="container">
             <h2>FUNCIONARIO > Novo</h2>
+            <button class="voltar"><a href="funcioList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="funcioNovoPost.php" method="POST">

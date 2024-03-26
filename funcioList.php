@@ -27,6 +27,7 @@ if (!Auth::isAuthenticated()) {
         <h2>FUNCIONARIO > LISTAGEM</h2>
         <button class="novo" onclick="link('funcioNovo.php')">Novo Funcionario</button>
       </div>
+      <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">
         <table class="table">
           <thead>

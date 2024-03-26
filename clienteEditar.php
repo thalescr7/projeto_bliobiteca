@@ -42,6 +42,7 @@ if (!$cliente) {
     <main>
         <div class="container">
             <h2>CLIENTE > Editar</h2>
+            <button class="voltar"><a href="clienteList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="clienteEditarPost.php" method="POST">

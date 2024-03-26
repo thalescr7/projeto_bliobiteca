@@ -38,6 +38,7 @@ if (!$livro){
     <main>
         <div class="container">
             <h2>LIVRO > Editar</h2>
+            <button class="voltar"><a href="livroList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="livroEditarPost.php" method="POST">

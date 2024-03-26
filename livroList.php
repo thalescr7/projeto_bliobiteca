@@ -27,6 +27,7 @@ if (!Auth::isAuthenticated()) {
         <h2>LIVROS > LISTAGEM</h2>
         <button class="novo" onclick="link('livroNovo.php')">Novo Livro</button>
       </div>
+      <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">
         <table class="table">
           <thead>

@@ -42,6 +42,7 @@ if (!$funcionario) {
     <main>
         <div class="container">
             <h2>funcionario > Editar</h2>
+            <button class="voltar"><a href="funcioList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="funcioEditarPost.php" method="POST">
