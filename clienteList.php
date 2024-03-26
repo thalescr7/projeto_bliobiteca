@@ -56,7 +56,9 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $cliente->getDataNascimento(); ?></td>
                 <td>
                   <a href="clienteEditar.php?id=<?php echo $cliente->getId(); ?>" id="editar">Editar</a>
-                  <a href="#" id="deletar">Deletar</a>
+                  <?php if(EmprestimoRepository::countByClientes($cliente->getId()) == 0){ ?>
+                    <a href="clienteExcluir.php?id=<?php echo $cliente->getId(); ?>" id="deletar">Deletar</a>
+                  <?php }?>
                 </td>
               </tr>
               <?php

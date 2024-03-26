@@ -88,7 +88,7 @@ class LivroRepository implements Repository{
         $query->execute();
     }
 
-    public static function countByAutor($autor_id){
+    public static function countByAutor($autor_id){ // Conta quantos livros tem o mesmo autor
         $db = DB::getInstance();
 
         $sql = 'SELECT count(*) FROM livro WHERE autor_id = :autor_id';
@@ -100,4 +100,6 @@ class LivroRepository implements Repository{
         $row = $query->fetch(PDO::FETCH_ASSOC);
         return $row["count(*)"];
     }
+
+
 }

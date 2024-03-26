@@ -52,7 +52,9 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $livro->getIsbn(); ?></td>
                 <td>
                   <a href="livroEditar.php?id=<?php echo $livro->getId(); ?>" id="editar">Editar</a>
-                  <a href="#" id="deletar">Deletar</a>
+                  <?php if(EmprestimoRepository::countByLivros($livro->getId()) == 0){ ?>
+                    <a href="livroExcluir.php?id=<?php echo $livro->getId(); ?>" id="deletar">Deletar</a>
+                  <?php }?>
                 </td>
               </tr>
               <?php
