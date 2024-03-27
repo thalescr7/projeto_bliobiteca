@@ -22,22 +22,22 @@ if(!$funcio){
     exit();
 }
 
-if(!isset($_POST['nome'])){
-    header("Location: funcioNovo.php?id=".$funcio->getId());
+if(!isset($_POST['senha'])){
+    header("Location: funcioEditar.php?id=".$funcio->getId());
     exit();
 }
-if($_POST["nome"] == "" || $_POST["nome"] == null){
-    header("Location: funcioNovo.php?id=".$funcio->getId());
+if($_POST["senha"] == "" || $_POST["senha"] == null){
+    header("Location: funcioEditar.php?id=".$funcio->getId());
+    exit();
+}
+
+if($_POST["senha"] != $_POST["repSenha"]){
+    header("Location: funcioEditar.php?id=".$funcio->getId());
     exit();
 }
 
 
-
-$funcio->setNome($_POST['nome']);
-$funcio->setCpf($_POST['cpf']);
-$funcio->setTelefone($_POST['telefone']);
 $funcio->setSenha($_POST['senha']);
-$funcio->setEmail($_POST['email']);
 $funcio->setAlteracaoFuncionarioId($user->getId());
 $funcio->setDataAlteracao(date('Y-d-m H:i:s'));
 
