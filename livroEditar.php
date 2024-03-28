@@ -62,9 +62,6 @@ if (!$livro){
                             <label for="autor" class="form-label">Autor</label>
                             <select name="autor" id="autor">
                                 <?php
-                                    $autor = AutorRepository::listAll();
-                                ?>
-                                <?php
                                     foreach(AutorRepository::listAll() as $autor){
                                 ?>
                                 <option value="<?php echo $autor->getId();?>"  <?php if($livro->getAutorId() == $autor->getId()){ echo "selected";} ?>>

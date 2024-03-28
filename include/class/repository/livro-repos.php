@@ -50,14 +50,14 @@ class LivroRepository implements Repository{
     }
     public static function insert($obj){
         $db = DB::getInstance();
-        $sql = "INSERT INTO livro (titulo, ano, genero, isbn, autor_id, data_inclusao, inclusao_funcionario_id) VALUES (:nome, :data_inclusao, :inclusao_funcionario_id)";
+        $sql = "INSERT INTO livro (titulo, ano, genero, isbn, autor_id, data_inclusao, inclusao_funcionario_id) VALUES (:titulo, :ano, :genero, :isbn, :autor_id, :data_inclusao, :inclusao_funcionario_id)";
 
         $query = $db->prepare($sql);
         $query->bindValue(":titulo",$obj->getTitulo());
         $query->bindValue(":ano",$obj->getAno());
         $query->bindValue(":genero",$obj->getGenero());
         $query->bindValue(":isbn",$obj->getIsbn());
-        $query->bindValue(":autor_id",$obj->getAutorID());
+        $query->bindValue(":autor_id",$obj->getAutorId());
         $query->bindValue(":data_inclusao",$obj->getDataInclusao());
         $query->bindValue(":inclusao_funcionario_id",$obj->getInclusaoFuncionarioId());
 

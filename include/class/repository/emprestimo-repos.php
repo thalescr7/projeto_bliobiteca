@@ -3,7 +3,7 @@
 class EmprestimoRepository implements Repository{
     public static function listAll(){
         $db = DB::getInstance();
-        $sql = "SELECT * FROM emprestimo WHERE id = :id";
+        $sql = "SELECT * FROM emprestimo";
         $query = $db->prepare($sql);
         $query->execute();
 
