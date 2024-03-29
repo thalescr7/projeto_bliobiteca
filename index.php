@@ -41,6 +41,10 @@ if (!Auth::isAuthenticated()) {
                     <p>Funcionarios</p>
                 </div>
 
+                <div class="block b5" onclick="link('empresList.php')">
+                    <p>Emprestimo</p>
+                </div>
+
 
             </div>
         </section>

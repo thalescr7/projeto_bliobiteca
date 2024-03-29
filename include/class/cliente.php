@@ -46,9 +46,12 @@
         return $this->rg;
     }
     public function setRg($rg){
-        $this->rg = $rg;
+        $this->rg = $rg; 
     }
-    public function getDataNascimento($format = 'Y-m-d'){
+    public function getDataNascimento(){
+        return $this->data_nascimento;
+    }
+    public function showDataNascimento($format = 'Y-m-d'){
         $datetime = DateTime::createFromFormat('Y-m-d', $this->data_nascimento);
         return $datetime->format($format);
     }

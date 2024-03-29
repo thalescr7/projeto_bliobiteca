@@ -53,7 +53,7 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $cliente->getEmail(); ?></td>
                 <td><?php echo $cliente->getCpf(); ?></td>
                 <td><?php echo $cliente->getRg(); ?></td>
-                <td><?php echo $cliente->getDataNascimento(); ?></td>
+                <td><?php echo $cliente->showDataNascimento('d/m/Y'); ?></td>
                 <td>
                   <a href="clienteEditar.php?id=<?php echo $cliente->getId(); ?>" id="editar">Editar</a>
                   <?php if(EmprestimoRepository::countByClientes($cliente->getId()) == 0){ ?>
