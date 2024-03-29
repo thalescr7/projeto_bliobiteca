@@ -32,27 +32,29 @@ if (!Auth::isAuthenticated()) {
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="clienteNovoPost.php" method="POST">
-                        <div class="md-3">
+                        <div class="md-3 mb-3">
                             <label for="nome" class="form-label">Nome</label>
                             <input type="text" name="nome" id="nome" class="form-control" required>
                         </div>
-                        <div class="md-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" name="telefone" id="telefone" class="form-control" required>
+                        <div class="row mb-3">
+                            <div class="md-3 col-6">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="text" name="telefone" id="telefone" class="form-control" required>
+                            </div>
+                            <div class="md-3 col-6">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="text" name="email" id="email" class="form-control" required>
+                            </div>
                         </div>
-                        <div class="md-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="text" name="email" id="email" class="form-control" required>
-                        </div>
-                        <div class="md-3">
+                        <div class="md-3 mb-3">
                             <label for="cpf" class="form-label">Cpf</label>
                             <input type="text" name="cpf" id="cpf" class="form-control" required>
                         </div>
-                        <div class="md-3">
+                        <div class="md-3 mb-3">
                             <label for="rg" class="form-label">Rg</label>
                             <input type="text" name="rg" id="rg" class="form-control" required>
                         </div>
-                        <div class="md-3">
+                        <div class="md-3 mb-3">
                             <label for="datepicker" class="form-label">Data de Nascimento</label>
                             <input type='text' name="dataNascimento" id="datepicker" class="form-control" required placeholder='dd/mm/aaaa'>
                         </div>

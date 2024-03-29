@@ -46,7 +46,7 @@ if (!Auth::isAuthenticated()) {
                                 <input type="text" name="isbn" id="isbn" class="form-control">
                             </div>
                         </div>
-                        <div class="md-3" id='select'>
+                        <div class="md-3" class='select'>
                             <label for="autor" class="form-label">Autor</label>
                             <select name="autor" id="autor">
                                 <?php

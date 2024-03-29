@@ -5,22 +5,6 @@ if (!Auth::isAuthenticated()) {
     header("Location: login.php");
     exit();
 }
-
-if (!isset($_GET['id'])) {
-    header("Location: clienteList.php?1");
-    exit();
-}
-if ($_GET['id'] == '' || $_GET['id'] == null) {
-    header("Location: clienteList.php?2");
-    exit();
-}
-
-$cliente = ClienteRepository::get($_GET['id']);
-
-if (!$cliente) {
-    header("Location: clienteList.php?3");
-    exit();
-}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -28,7 +12,7 @@ if (!$cliente) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Cliente</title>
+    <title>Novo Cliente</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
@@ -40,42 +24,47 @@ if (!$cliente) {
 </head>
 
 <body>
-    <?php include("include/menu.php") ?>
+    <?php include("include/menu.php"); ?>
     <main>
         <div class="container">
-            <h2>CLIENTE > Editar</h2>
-            <button class="voltar"><a href="clienteList.php">Voltar</a></button>
+            <h2>Empréstimo > Novo</h2>
+            <button class="voltar"><a href="empresList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
-                    <form action="clienteEditarPost.php" method="POST">
-                        <div class="md-3 mb-3">
-                            <label for="nome" class="form-label">Nome</label>
-                            <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $cliente->getNome(); ?>">
-                        </div>
+                    <form action="empresNovoPost.php" method="POST">
                         <div class="row mb-3">
-                            <div class="md-3 col-6">
-                                <label for="telefone" class="form-label">Telefone</label>
-                                <input type="text" name="telefone" id="telefone" class="form-control" value="<?php echo $cliente->getTelefone(); ?>">
+                            <div class="select col-6">
+                                <label for="livro" class="form-label">Livro</label>
+                                <select name="livroId" id="livro" required>
+                                    <?php
+                                        foreach(LivroRepository::listAll() as $livro){
+                                             if(EmprestimoRepository::countByLivros($livro->getId) != 0){ 
+                                    ?>
+                                            <option value="<?php echo $livro->getId();?>">
+                                                <?php echo $livro->getTitulo(); ?>
+                                            </option>
+                                    <?php }} ?>
+                                </select>
                             </div>
-                            <div class="md-3 col-6">
-                                <label for="email" class="form-label">Email</label>
-                                <input type="text" name="email" id="email" class="form-control" value="<?php echo $cliente->getEmail(); ?>">
+                            <div class="select col-6">
+                                <label for="cliente" class="form-label">Cliente</label>
+                                <select name="clienteId" id="cliente" required>
+                                    <?php
+                                        foreach(ClienteRepository::listAll() as $cliente){
+                                            if(EmprestimoRepository::countByClientes($cliente->getId) == 0){
+                                    ?>
+                                        <option value="<?php echo $cliente->getId();?>">
+                                            <?php echo $cliente->getNome(); ?>
+                                        </option>
+                                    <?php }} ?>
+                                </select>
                             </div>
                         </div>
                         <div class="md-3 mb-3">
-                            <label for="cpf" class="form-label">Cpf</label>
-                            <input type="text" name="cpf" id="cpf" class="form-control" value="<?php echo $cliente->getCpf(); ?>">
-                        </div>
-                        <div class="md-3 mb-3">
-                            <label for="rg" class="form-label">Rg</label>
-                            <input type="text" name="rg" id="rg" class="form-control" value="<?php echo $cliente->getRg(); ?>">
-                        </div>
-                        <div class="md-3 mb-3">
-                            <label for="datepicker" class="form-label">Data de Nascimento</label>
-                            <input type="text" name="dataNascimento" id="datepicker" class="form-control" value="<?php echo $cliente->getDataNascimento(); ?>">
+                            <label for="datepicker" class="form-label">Data de Vencimento</label>
+                            <input type='text' name="dataVencimento" id="datepicker" class="form-control" required placeholder='dd/mm/aaaa'>
                         </div>
                         <div class="md-3">
-                            <input type="hidden" name="id" value="<?php echo $cliente->getId(); ?>">
                             <button type="submit" class="enviar">Salvar</button>
                         </div>
                     </form>
@@ -109,4 +98,5 @@ if (!$cliente) {
     }
 });
 </script>
+
 </html>

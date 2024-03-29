@@ -20,12 +20,12 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
-  <?php include("include/menu.php"); ?>
+  <?php include("include/menu.php") ?>
   <main>
     <div class="container">
       <div id="listagem">
-        <h2>Emprestimo > Listagem</h2>
-        <button class="novo" onclick="link('empreNovo.php')">Novo Emprestimo</button>
+        <h2>Emprestimo > LISTAGEM</h2>
+        <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">
@@ -35,19 +35,17 @@ if (!Auth::isAuthenticated()) {
               <th>ID</th>
               <th>Livro</th>
               <th>Cliente</th>
-              <th>Data Vencimento</th>
-              <th>Data Devolução</th>
+              <th>Devolução</th>
               <th>Ações</th>
             </tr>
           </thead>
           <tbody>
               <?php
-                foreach(EmprestimoRepository::listAll() as $empres){
+              foreach(EmprestimoRepository::listAll() as $empres){
               ?>
               <tr>
                 <td><?php echo $empres->getId(); ?></td>
-                <td>
-                    <?php 
+                <td><?php 
                         $livro = LivroRepository::get($empres->getLivroId());
                         echo $empres->getLivroId()." - ". $livro->getTitulo(); 
                     ?>
@@ -58,17 +56,13 @@ if (!Auth::isAuthenticated()) {
                         echo $empres->getClienteId()." - ". $cliente->getNome(); 
                     ?>
                 </td>
-                <td><?php echo $empres->getDataVencimento("d/m/Y"); ?></td>
                 <td><?php echo $empres->getDataDevolucao("d/m/Y"); ?></td>
                 <td>
                   <a href="empresEditar.php?id=<?php echo $empres->getId(); ?>" id="editar">Editar</a>
-                  <?php  ?>
-                    <a href="empresExcluir.php?id=<?php echo $empre->getId(); ?>" id="deletar">Deletar</a>
-                  <?php?>
                 </td>
               </tr>
               <?php
-                }
+              }
               ?>
           </tbody>
         </table>

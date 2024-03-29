@@ -38,18 +38,19 @@ class Emprestimo{
         $this->cliente_id = $cliente_id;
     }
 
-    public function getDataVencimento($format = 'Y-m-d'){
-        $datetime = DateTime::createFromFormat('Y-m-d', $this->data_vencimento);
-        return $datetime->format($format);
+    public function getDataVencimento(){
+        return $this->data_vencimento;
     }
 
     public function setDataVencimento($data_vencimento){
         $this->data_vencimento = $data_vencimento;
     }
-
-    public function getDataInclusao($format = 'Y-m-d'){
-        $datetime = DateTime::createFromFormat('Y-m-d', $this->data_inclusao);
+    public function showDataVencimento($format = 'Y-m-d'){
+        $datetime = DateTime::createFromFormat('Y-m-d', $this->data_nascimento);
         return $datetime->format($format);
+    }
+    public function getDataInclusao(){
+        return $this->data_inclusao;
     }
 
     public function setDataInclusao($data_inclusao){

@@ -46,24 +46,26 @@ if (!$funcionario) {
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="funcioEditarPost.php" method="POST">
-                        <div class="md-3">
+                        <div class="md-3 mb-3">
                             <label for="nome" class="form-label">Nome</label>
                             <input type="text" name="nome" id="nome" class="form-control" value="<?php echo $funcionario->getNome(); ?>">
                         </div>
-                        <div class="md-3">
-                            <label for="cpf" class="form-label">Cpf</label>
-                            <input type="text" name="cpf" id="cpf" class="form-control" value="<?php echo $funcionario->getCpf(); ?>">
+                        <div class="row mb-3">
+                            <div class="md-3 col-6">
+                                <label for="cpf" class="form-label">Cpf</label>
+                                <input type="text" name="cpf" id="cpf" class="form-control" value="<?php echo $funcionario->getCpf(); ?>">
+                            </div>
+                            <div class="md-3 col-6">
+                                <label for="telefone" class="form-label">Telefone</label>
+                                <input type="text" name="telefone" id="telefone" class="form-control" value="<?php echo $funcionario->getTelefone(); ?>">
+                            </div>
                         </div>
-                        <div class="md-3">
-                            <label for="telefone" class="form-label">Telefone</label>
-                            <input type="text" name="telefone" id="telefone" class="form-control" value="<?php echo $funcionario->getTelefone(); ?>">
-                        </div>
-                        <div class="md-3">
+                        <div class="md-3 mb-3">
                             <label for="email" class="form-label">Email</label>
                             <input type="text" name="email" id="email" class="form-control" value="<?php echo $funcionario->getEmail(); ?>">
                         </div>
-                        <div class="md-3">
-                            <button><a href="funcioAlterarSenha.php?id=<?php echo $funcionario->getId() ?>">Alterar Senha</a></button>
+                        <div class="md-3 mb-3">
+                            <button id='alterar'><a href="funcioAlterarSenha.php?id=<?php echo $funcionario->getId() ?>">Alterar Senha</a></button>
                         </div>
                         
                         

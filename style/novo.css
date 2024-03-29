@@ -32,16 +32,29 @@ form .enviar{
 }
 
 
-#select{
+.select{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
 }
-#select > select{
+.select > select{
     background-color: white;
     color: rgb(20, 20, 20);
     font-size: 1.2em;
     padding: 4px;
     border-radius: 5px;
     border: 2px solid #E7EAED;
+}
+
+#alterar{
+    background-color: white;
+    color: rgb(20, 20, 20);
+    font-size: 1.2em;
+    padding: 4px;
+    border-radius: 5px;
+    border: 2px solid #E7EAED;
+}
+#alterar a{
+    color: rgb(20, 20, 20);
+
 }
