@@ -46,7 +46,7 @@ class Emprestimo{
         $this->data_vencimento = $data_vencimento;
     }
     public function showDataVencimento($format = 'Y-m-d'){
-        $datetime = DateTime::createFromFormat('Y-m-d', $this->data_nascimento);
+        $datetime = DateTime::createFromFormat('Y-m-d', $this->data_vencimento);
         return $datetime->format($format);
     }
     public function getDataInclusao(){
@@ -76,13 +76,15 @@ class Emprestimo{
     public function setDataRenovacao($data_renovacao){
         $this->data_renovacao = $data_renovacao;
     }
-
-    public function getDataDevolucao($format = 'Y-m-d'){
+    public function showDataDevolucao($format = 'Y-m-d'){
         $datetime = DateTime::createFromFormat('Y-m-d', $this->data_devolucao);
         if($datetime){
             return $datetime->format($format);
         }
         return null;
+    }
+    public function getDataDevolucao(){
+        return $this->data_devolucao;
     }
 
     public function setDataDevolucao($data_devolucao){

@@ -35,14 +35,14 @@ if (!Auth::isAuthenticated()) {
                         <div class="row mb-3">
                             <div class="select col-6">
                                 <label for="livro" class="form-label">Livro</label>
-                                <select name="livroId" id="livro" required>
+                                <select name="livroId" id="cliente" required>
                                     <?php
                                         foreach(LivroRepository::listAll() as $livro){
-                                             if(EmprestimoRepository::countByLivros($livro->getId) != 0){ 
+                                            if(EmprestimoRepository::countByLivros($livro->getId()) == 0){
                                     ?>
-                                            <option value="<?php echo $livro->getId();?>">
-                                                <?php echo $livro->getTitulo(); ?>
-                                            </option>
+                                        <option value="<?php echo $livro->getId();?>">
+                                            <?php echo $livro->getTitulo(); ?>
+                                        </option>
                                     <?php }} ?>
                                 </select>
                             </div>
@@ -51,7 +51,7 @@ if (!Auth::isAuthenticated()) {
                                 <select name="clienteId" id="cliente" required>
                                     <?php
                                         foreach(ClienteRepository::listAll() as $cliente){
-                                            if(EmprestimoRepository::countByClientes($cliente->getId) == 0){
+                                            if(EmprestimoRepository::countByClientes($cliente->getId()) == 0){
                                     ?>
                                         <option value="<?php echo $cliente->getId();?>">
                                             <?php echo $cliente->getNome(); ?>
@@ -62,7 +62,7 @@ if (!Auth::isAuthenticated()) {
                         </div>
                         <div class="md-3 mb-3">
                             <label for="datepicker" class="form-label">Data de Vencimento</label>
-                            <input type='text' name="dataVencimento" id="datepicker" class="form-control" required placeholder='dd/mm/aaaa'>
+                            <input type='text' name="dataVencimento" id="datepicker" class="form-control" required placeholder='dd/mm/aaaa' autocomplete='off'>
                         </div>
                         <div class="md-3">
                             <button type="submit" class="enviar">Salvar</button>
@@ -76,9 +76,13 @@ if (!Auth::isAuthenticated()) {
 <script src="moment.js"></script>
 <script src="pikaday.js"></script>
 <script>
+    let today = new Date();
+    today.setDate(today.getDate() + 7);
+
     var picker = new Pikaday({
     field: document.getElementById('datepicker'),
     minDate: new Date(1900, 0, 1),
+    maxDate: today,
     yearRange: [1900, new Date().getFullYear()],
     toString(date, format = 'DD/MM/YYYY') {
         const day = date.getDate().toString().padStart(2, '0');
@@ -96,7 +100,7 @@ if (!Auth::isAuthenticated()) {
     onSelect: function() {
         console.log(this.getMoment().format('DD/MM/YYYY'));
     }
-});
+    });
 </script>
 
 </html>

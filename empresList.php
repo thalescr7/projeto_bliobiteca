@@ -35,6 +35,7 @@ if (!Auth::isAuthenticated()) {
               <th>ID</th>
               <th>Livro</th>
               <th>Cliente</th>
+              <th>Vencimento</th>
               <th>Devolução</th>
               <th>Ações</th>
             </tr>
@@ -56,7 +57,8 @@ if (!Auth::isAuthenticated()) {
                         echo $empres->getClienteId()." - ". $cliente->getNome(); 
                     ?>
                 </td>
-                <td><?php echo $empres->getDataDevolucao("d/m/Y"); ?></td>
+                <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
+                <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
                 <td>
                   <a href="empresEditar.php?id=<?php echo $empres->getId(); ?>" id="editar">Editar</a>
                 </td>
