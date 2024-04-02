@@ -60,8 +60,11 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
                 <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
                 <td>
-                  <a href="empresEditar.php?id=<?php echo $empres->getId(); ?>" id="editar">Editar</a>
+                  <?php if($empres->getDataRenovacao() == null && $empres->getDataDevolucao() == null && $empres->getDataAlteracao() == null){ ?>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="excluir">Excluir</a>
+                  <?php } ?>
                 </td>
+
               </tr>
               <?php
               }

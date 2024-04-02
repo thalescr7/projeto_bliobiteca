@@ -43,6 +43,7 @@ if (!Auth::isAuthenticated()) {
           <tbody>
             <?php
             foreach (FuncionarioRepository::listAll() as $funcionario) {
+              $user = Auth::getUser();
             ?>
               <tr>
                 <td><?php echo $funcionario->getId(); ?></td>
@@ -53,7 +54,7 @@ if (!Auth::isAuthenticated()) {
 
                 <td>
                   <a href="funcioEditar.php?id=<?php echo $funcionario->getId(); ?>" id="editar">Editar</a>
-                  <?php if(EmprestimoRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByDevolucaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByRenovacaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0){ ?>
+                  <?php if( EmprestimoRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByDevolucaoFuncionario($funcionario->getId()) == 0 && EmprestimoRepository::countByRenovacaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && ClienteRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && AutorRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByInclusaoFuncionario($funcionario->getId()) == 0 && LivroRepository::countByAlteracaoFuncionario($funcionario->getId()) == 0){ ?>
                     <a href="funcioExcluir.php?id=<?php echo $funcionario->getId(); ?>" id="deletar">Deletar</a>
                   <?php }?>
                 </td>

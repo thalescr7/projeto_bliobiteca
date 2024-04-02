@@ -82,7 +82,7 @@ class LivroRepository implements Repository{
     }
     public static function delete($id){
         $db = DB::getInstance();
-        $sql = "DELETE FROM autor WHERE id=:id";
+        $sql = "DELETE FROM livro WHERE id=:id";
         $query=$db->prepare($sql);
         $query->bindValue(":id",$id);
         $query->execute();
