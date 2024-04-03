@@ -25,7 +25,19 @@
                     <li><a class="dropdown-item" href="funcioList.php">Funcionarios</a></li>
                 </ul>
             </div>
-            <a href="empresListAll.php">Emprestimo</a>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Emprestimo
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="empresListAll.php">Todos</a></li>
+                    <li><a class="dropdown-item" href="empresListVencido.php">Vencidos</a></li>
+                    <li><a class="dropdown-item" href="empresListDevol.php">Devolvidos</a></li>
+                    <li><a class="dropdown-item" href="empresListRenov.php">Renovados</a></li>
+                    <li><a class="dropdown-item" href="empresListAlterac.php">Alterados</a></li>
+                </ul>
+            </div>
 
         </div>
     </nav>

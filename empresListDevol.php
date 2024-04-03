@@ -17,6 +17,8 @@ if (!Auth::isAuthenticated()) {
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/listagensIndx.css">
   <link rel="stylesheet" href="style/index.css">
+  <script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -24,7 +26,7 @@ if (!Auth::isAuthenticated()) {
   <main>
     <div class="container">
       <div id="listagem">
-        <h2>Emprestimo > LISTAGEM</h2>
+        <h2>Emprestimo > Listagem > Devolvidos</h2>
         <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>
@@ -42,7 +44,7 @@ if (!Auth::isAuthenticated()) {
           <tbody>
               <?php
               foreach(EmprestimoRepository::listAll() as $empres){
-                if(EmprestimoRepository::countByDevolucao() > 0){
+                if(EmprestimoRepository::countByDataDevolucao($empres->getId()) > 0){
               ?>
               <tr>
                 <td><?php echo $empres->getId(); ?></td>
@@ -70,8 +72,7 @@ if (!Auth::isAuthenticated()) {
       </div>
     </div>
   </main>
-  <script src="js/index.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  
 </body>
 
 </html>

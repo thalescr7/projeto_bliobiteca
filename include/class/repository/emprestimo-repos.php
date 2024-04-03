@@ -117,7 +117,7 @@ class EmprestimoRepository implements Repository{
     public static function countByDataRenovacao($emprestimo_id){ 
         $db = DB::getInstance();
 
-        $sql = 'SELECT count(*) FROM emprestimo WHERE data_renovacao = :emprestimo_id'; 
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_renovacao IS NOT NULL AND id = :emprestimo_id';  
 
         $query = $db->prepare($sql);
         $query->bindValue(":emprestimo_id",$emprestimo_id);
@@ -130,7 +130,7 @@ class EmprestimoRepository implements Repository{
     public static function countByDataDevolucao($emprestimo_id){ 
         $db = DB::getInstance();
 
-        $sql = 'SELECT count(*) FROM emprestimo WHERE data_devolucao = :emprestimo_id'; 
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_devolucao IS NOT NULL AND id = :emprestimo_id';  
 
         $query = $db->prepare($sql);
         $query->bindValue(":emprestimo_id",$emprestimo_id);
@@ -143,7 +143,7 @@ class EmprestimoRepository implements Repository{
     public static function countByDataAlteracao($emprestimo_id){ 
         $db = DB::getInstance();
 
-        $sql = 'SELECT count(*) FROM emprestimo WHERE data_alteracao = :emprestimo_id'; 
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_alteracao IS NOT NULL AND id = :emprestimo_id'; 
 
         $query = $db->prepare($sql);
         $query->bindValue(":emprestimo_id",$emprestimo_id);
@@ -202,5 +202,16 @@ class EmprestimoRepository implements Repository{
 
         $row = $query->fetch(PDO::FETCH_ASSOC);
         return $row["count(*)"];
+    }
+
+    public static function estaVencido($emprestimo_id) {
+        $empres = EmprestimoRepository::get($emprestimo_id);
+        $data_atual = new DateTime();
+        $data_formatada = $data_atual->format('Y-m-d');
+        if ($empres->getDataVencimento() < $data_formatada){
+            return true;
+        }
+
+        return false;
     }
 }
