@@ -37,12 +37,12 @@ if (!Auth::isAuthenticated()) {
               <th>Cliente</th>
               <th>Vencimento</th>
               <th>Devolução</th>
-              <th>Ações</th>
             </tr>
           </thead>
           <tbody>
               <?php
               foreach(EmprestimoRepository::listAll() as $empres){
+                if(EmprestimoRepository::countByDevolucao() > 0){
               ?>
               <tr>
                 <td><?php echo $empres->getId(); ?></td>
@@ -59,15 +59,11 @@ if (!Auth::isAuthenticated()) {
                 </td>
                 <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
                 <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
-                <td>
-                  <?php if($empres->getDataRenovacao() == null && $empres->getDataDevolucao() == null && $empres->getDataAlteracao() == null){ ?>
-                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="excluir">Excluir</a>
-                  <?php } ?>
-                </td>
+                
 
               </tr>
               <?php
-              }
+                }}
               ?>
           </tbody>
         </table>

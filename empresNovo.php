@@ -28,7 +28,7 @@ if (!Auth::isAuthenticated()) {
     <main>
         <div class="container">
             <h2>Empréstimo > Novo</h2>
-            <button class="voltar"><a href="empresList.php">Voltar</a></button>
+            <button class="voltar"><a href="empresListAll.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="empresNovoPost.php" method="POST">

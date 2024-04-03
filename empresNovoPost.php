@@ -31,7 +31,7 @@ echo $emprestimo->getDataVencimento;
 $emprestimo_retorno = EmprestimoRepository::insert($emprestimo);
 
 if($emprestimo_retorno > 0){
-    header("Location: empresList.php");
+    header("Location: empresListAll.php");
     exit();
 }
 

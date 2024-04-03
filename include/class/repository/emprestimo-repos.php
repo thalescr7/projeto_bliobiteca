@@ -82,7 +82,7 @@ class EmprestimoRepository implements Repository{
     }
     public static function delete($id){
         $db = DB::getInstance();
-        $sql = "DELETE FROM autor WHERE id=:id";
+        $sql = "DELETE FROM emprestimo WHERE id=:id";
         $query=$db->prepare($sql);
         $query->bindValue(":id",$id);
         $query->execute();
@@ -101,7 +101,7 @@ class EmprestimoRepository implements Repository{
         return $row["count(*)"];
     }
 
-    public static function countByClientes($cliente_id){ // Conta quantos emprestimos existem com o mesmo cliente
+    public static function countByClientes($cliente_id){ 
         $db = DB::getInstance();
 
         $sql = 'SELECT count(*) FROM emprestimo WHERE cliente_id = :cliente_id'; 
@@ -113,6 +113,46 @@ class EmprestimoRepository implements Repository{
         $row = $query->fetch(PDO::FETCH_ASSOC);
         return $row["count(*)"];
     }
+
+    public static function countByDataRenovacao($emprestimo_id){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_renovacao = :emprestimo_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":emprestimo_id",$emprestimo_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function countByDataDevolucao($emprestimo_id){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_devolucao = :emprestimo_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":emprestimo_id",$emprestimo_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function countByDataAlteracao($emprestimo_id){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_alteracao = :emprestimo_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":emprestimo_id",$emprestimo_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
 
     public static function countByInclusaoFuncionario($inclusao_funcionario_id){
         $db = DB::getInstance();

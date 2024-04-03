@@ -25,7 +25,7 @@
                     <li><a class="dropdown-item" href="funcioList.php">Funcionarios</a></li>
                 </ul>
             </div>
-            <a href="empresList.php">Emprestimo</a>
+            <a href="empresListAll.php">Emprestimo</a>
 
         </div>
     </nav>
