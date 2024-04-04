@@ -24,7 +24,7 @@ if (!Auth::isAuthenticated()) {
   <main>
     <div class="container">
       <div id="listagem">
-        <h2>AUTORES > LISTAGEM</h2> 
+        <h2>AUTORES > LISTAGEM</h2>
         <button class="novo" onclick="link('autorNovo.php')">Novo Autor</button>
       </div>
       <div class="table-responsive">
@@ -37,20 +37,22 @@ if (!Auth::isAuthenticated()) {
             </tr>
           </thead>
           <tbody>
-              <?php
-              foreach(AutorRepository::listAll() as $autor){
-              ?>
+            <?php
+            foreach (AutorRepository::listAll() as $autor) {
+            ?>
               <tr>
                 <td><?php echo $autor->getId(); ?></td>
                 <td><?php echo $autor->getNome(); ?></td>
                 <td>
                   <a href="autorEditar.php?id=<?php echo $autor->getId(); ?>" id="editar">Editar</a>
-                  <a href="#" id="deletar">Deletar</a>
+                  <?php if (LivroRepository::contByAutor($autor->getId()) == 0) { ?>
+                    <a href="#" id="deletar">Deletar</a>
+                  <?php } ?>
                 </td>
               </tr>
-              <?php
-              }
-              ?>
+            <?php
+            }
+            ?>
           </tbody>
         </table>
       </div>

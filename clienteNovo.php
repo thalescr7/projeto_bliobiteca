@@ -22,7 +22,7 @@ if (!Auth::isAuthenticated()) {
 </head>
 
 <body>
-    <?php include("include/menu.php") ?>
+    <?php include("include/menu.php");?>
     <main>
         <div class="container">
             <h2>CLIENTE > Novo</h2>

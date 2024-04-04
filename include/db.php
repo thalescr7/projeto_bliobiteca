@@ -7,7 +7,7 @@ class DB{
             return self::$instance;
         }
 
-        self::$instance = new PDO("mysql:host=localhost;dbname=blio","root","");
+        self::$instance = new PDO("mysql:host=localhost;dbname=biblioteca","root","");
         return self::$instance;
     }
 }

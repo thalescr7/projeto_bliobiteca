@@ -33,6 +33,12 @@ class Factory{
     }
     public static function emprestimo(){
         return new Emprestimo();
+
+        $datetime = new DateTime();
+        $datetime->add(new DaInterval("P7D"));
+
+        $emprestimo->setDataVencimento($datetime->format("Y-m-d"));
+        return $emprestimo;
     }
     public static function livro(){
         return new Livro();
