@@ -38,4 +38,4 @@ if(EmprestimoRepository::countByDataAlteracao($_GET["id"]) > 0){
 
 EmprestimoRepository::delete($empres->getId());
 
-header("Location: empresList.php");
+header("Location: empresListAll.php");

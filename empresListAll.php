@@ -63,7 +63,7 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
                 <td>
                   <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataAlteracao($empres->getId()) == null){ ?>
-                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="excluir">Excluir</a>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" id="deletar">Excluir</a>
                   <?php } ?>
                 </td>
 
