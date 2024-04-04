@@ -52,7 +52,7 @@ if (!Auth::isAuthenticated()) {
                             <input type="text" name="rg" id="rg" class="form-control" required>
                         </div>
                         <div class="md-3 mb-3">
-                            <label for="datepicker" class="form-label">Data de Nascimento</label>
+                            <label for="datepicker" class="form-label">Data de acimento</label>
                             <input type='text' name="dataNascimento" id="datepicker" class="form-control nascimento" required placeholder='dd/mm/aaaa'>
                         </div>
                         <div class="md-3">
