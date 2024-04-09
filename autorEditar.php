@@ -38,6 +38,7 @@ if (!$autor){
     <main>
         <div class="container">
             <h2>AUTOR > Editar</h2>
+            <button class="voltar"><a href="autorList.php">Voltar</a></button>
             <div class="row mt-4">
                 <div class="col-md-12">
                     <form action="autorEditarPost.php" method="POST">

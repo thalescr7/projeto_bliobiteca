@@ -8,11 +8,11 @@ if (!Auth::isAuthenticated()) {
 
 $user = Auth::getUser();
 
-if(!isset($_POST['nome'])){
+if(!isset($_POST['titulo'])){
     header("Location: livroNovo.php");
     exit();
 }
-if($_POST["nome" == ''] || $_POST["nome" == null]){
+if($_POST["titulo"] == '' || $_POST["titulo"] == null){
     header("Location: livroNovo.php");
     exit();
 }
@@ -25,7 +25,7 @@ $livro->setGenero($_POST['genero']);
 $livro->setIsbn($_POST['isbn']);
 $livro->setAutorId($_POST['autor']);
 $livro->setinclusaoFuncionarioId($user->getID());
-$livro->setDataInclusao(date('Y-d-m H:i:s'));
+$livro->setDataInclusao(date('Y-d-m h:i:s'));
 
 $livro_retorno = LivroRepository::insert($livro);
 
@@ -34,5 +34,5 @@ if($livro_retorno > 0){
     exit();
 }
 
-header("Location: livroNovo.php");
+header("Location: livroEditar.php");
     exit();

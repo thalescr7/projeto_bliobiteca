@@ -7,19 +7,16 @@ if (!Auth::isAuthenticated()) {
 }
 
 $user = Auth::getUser();
-echo('5');
 if(!isset($_POST['nome'])){
-    echo('4');
+
     header("Location: funcioNovo.php");
     exit();
 }
-echo('3');
 if($_POST["nome" == ''] || $_POST["nome" == null]){
-    echo('2');
+
     header("Location: funcioNovo.php");
     exit();
 }
-echo('1');
 
 $funcio = Factory::funcionario();
 
@@ -29,7 +26,7 @@ $funcio->setTelefone($_POST['telefone']);
 $funcio->setEmail($_POST['email']);
 $funcio->setSenha($_POST['senha']);
 $funcio->setinclusaoFuncionarioId($user->getID());
-$funcio->setDataInclusao(date('Y-d-m H:i:s'));
+$funcio->setDataInclusao(date('Y-d-m h:i:s'));
 
 $funcio_retorno = FuncionarioRepository::insert($funcio);
 

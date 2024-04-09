@@ -2,7 +2,7 @@
 include_once('include/factory.php');
 
 if (!Auth::isAuthenticated()) {
-    header("Location: login.php");
+    header("Location: login.php"); 
     exit();
 }
 
@@ -30,7 +30,8 @@ if($_POST["nome"] == "" || $_POST["nome"] == null){
     header("Location: clienteNovo.php?id=".$cliente->getId());
     exit();
 }
-
+$datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataNascimento"]);
+$dateFormatted = $datetime->format('Y-m-d');
 
 
 $cliente->setNome($_POST['nome']);
@@ -38,9 +39,9 @@ $cliente->setTelefone($_POST['telefone']);
 $cliente->setEmail($_POST['email']);
 $cliente->setCpf($_POST['cpf']);
 $cliente->setRg($_POST['rg']);
-$cliente->setDataNascimento($_POST['dataNascimento']);
+$cliente->setDataNascimento($dateFormatted);
 $cliente->setAlteracaoFuncionarioId($user->getID());
-$cliente->setDataAlteracao(date('Y-d-m H:i:s'));
+$cliente->setDataAlteracao(date('Y-d-m h:i:s'));
 
 ClienteRepository::update($cliente);
 

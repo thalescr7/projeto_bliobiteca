@@ -1,14 +1,15 @@
     <header>
         <style>
-        /* Estilos para o cabeçalho e menu */
+        
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f9fa; /* Cor de fundo do cabeçalho */
+    background-color: #f8f9fa; 
     padding: 10px;
 }
 
+ 
 #headTitle {
     display: flex;
     align-items: center;
@@ -29,13 +30,13 @@ header {
 }
 
 .btn {
-    background-color: #808080; /* Cinza */
+    background-color: #808080; 
     color: white;
 }
 
 .dropdown-menu {
-    background-color: #808080; /* Cinza */
-    border: 2px solid #808080; /* Borda cinza */
+    background-color: #808080; 
+    border: 2px solid #808080; 
 }
 
 #sair {
@@ -43,7 +44,7 @@ header {
     font-size: 16px;
     text-decoration: none;
     color: white;
-    background-color: #dc3545; /* Fundo vermelho */
+    background-color: #dc3545; 
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -117,3 +118,38 @@ header {
         </nav>
         <a href="logout.php" id="sair">Sair</a>
     </header>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="livroList.php">Livros</a></li>
+                    <li><a class="dropdown-item" href="autorList.php">Autor</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Usuarios
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="clienteList.php">Clientes</a></li>
+                    <li><a class="dropdown-item" href="funcioList.php">Funcionarios</a></li>
+                </ul>
+            </div>
+            <div class="dropdown">
+                <a class="btn dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Emprestimo
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="empresListAll.php">Todos</a></li>
+                    <li><a class="dropdown-item" href="empresListVencido.php">Vencidos</a></li>
+                    <li><a class="dropdown-item" href="empresListDevol.php">Devolvidos</a></li>
+                    <li><a class="dropdown-item" href="empresListRenov.php">Renovados</a></li>
+                    <li><a class="dropdown-item" href="empresListAlterac.php">Alterados</a></li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <a href="logout.php" id="sair">Sair</a>
+</header>
+>>>>>>> bc46ea0b387f5c70586375d201c7cbedf74d1368

@@ -2,7 +2,7 @@
 include_once('include/factory.php');
 
 if (!Auth::isAuthenticated()) {
-  header("Location: livroList.php");
+  header("Location: login.php");
   exit();
 }
 ?>
@@ -12,7 +12,7 @@ if (!Auth::isAuthenticated()) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Livro listagem</title>
+  <title>Emprestimo Listagem</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/listagensIndx.css">
@@ -24,8 +24,8 @@ if (!Auth::isAuthenticated()) {
   <main>
     <div class="container">
       <div id="listagem">
-        <h2>LIVROS > LISTAGEM</h2>
-        <button class="novo" onclick="link('livroNovo.php')">Novo Livro</button>
+        <h2>Emprestimo > Listagem > Alterados</h2>
+        <button class="novo" onclick="link('empresNovo.php')">Novo Emprestimo</button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">
@@ -33,32 +33,37 @@ if (!Auth::isAuthenticated()) {
           <thead>
             <tr>
               <th>ID</th>
-              <th>Titulo</th>
-              <th>Ano</th>
-              <th>Genero</th>
-              <th>ISBN</th>
-              <th>Ações</th>
+              <th>Livro</th>
+              <th>Cliente</th>
+              <th>Vencimento</th>
+              <th>Devolução</th>
             </tr>
           </thead>
           <tbody>
               <?php
-              foreach(LivroRepository::listAll() as $livro){
+              foreach(EmprestimoRepository::listAll() as $empres){
+                if(EmprestimoRepository::countByDataAlteracao($empres->getId()) > 0){
               ?>
               <tr>
-                <td><?php echo $livro->getId(); ?></td>
-                <td><?php echo $livro->getTitulo(); ?></td>
-                <td><?php echo $livro->getAno(); ?></td>
-                <td><?php echo $livro->getGenero(); ?></td>
-                <td><?php echo $livro->getIsbn(); ?></td>
-                <td>
-                  <a href="livroEditar.php?id=<?php echo $livro->getId(); ?>" id="editar">Editar</a>
-                  <?php if(EmprestimoRepository::countByLivros($livro->getId()) == 0){ ?>
-                    <a href="livroExcluir.php?id=<?php echo $livro->getId(); ?>" id="deletar">Deletar</a>
-                  <?php }?>
+                <td><?php echo $empres->getId(); ?></td>
+                <td><?php 
+                        $livro = LivroRepository::get($empres->getLivroId());
+                        echo $empres->getLivroId()." - ". $livro->getTitulo(); 
+                    ?>
                 </td>
+                <td>
+                    <?php 
+                        $cliente = ClienteRepository::get($empres->getClienteId());
+                        echo $empres->getClienteId()." - ". $cliente->getNome(); 
+                    ?>
+                </td>
+                <td><?php echo $empres->showDataVencimento("d/m/Y"); ?></td>
+                <td><?php echo $empres->showDataDevolucao("d/m/Y"); ?></td>
+                
+
               </tr>
               <?php
-              }
+                }}
               ?>
           </tbody>
         </table>

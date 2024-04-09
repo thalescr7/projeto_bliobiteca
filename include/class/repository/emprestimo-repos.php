@@ -3,7 +3,7 @@
 class EmprestimoRepository implements Repository{
     public static function listAll(){
         $db = DB::getInstance();
-        $sql = "SELECT * FROM emprestimo WHERE id = :id";
+        $sql = "SELECT * FROM emprestimo";
         $query = $db->prepare($sql);
         $query->execute();
 
@@ -82,9 +82,136 @@ class EmprestimoRepository implements Repository{
     }
     public static function delete($id){
         $db = DB::getInstance();
-        $sql = "DELETE FROM autor WHERE id=:id";
+        $sql = "DELETE FROM emprestimo WHERE id=:id";
         $query=$db->prepare($sql);
         $query->bindValue(":id",$id);
         $query->execute();
+    }
+
+    public static function countByLivros($livro_id){ // Conta quantos emprestimos existem com o mesmo livro
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE livro_id = :livro_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":livro_id",$livro_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function countByClientes($cliente_id){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE cliente_id = :cliente_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":cliente_id",$cliente_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function countByDataRenovacao($emprestimo_id){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_renovacao IS NOT NULL AND id = :emprestimo_id';  
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":emprestimo_id",$emprestimo_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function countByDataDevolucao($emprestimo_id){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_devolucao IS NOT NULL AND id = :emprestimo_id';  
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":emprestimo_id",$emprestimo_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function countByDataAlteracao($emprestimo_id){ 
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE data_alteracao IS NOT NULL AND id = :emprestimo_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":emprestimo_id",$emprestimo_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+
+    public static function countByInclusaoFuncionario($inclusao_funcionario_id){
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE inclusao_funcionario_id = :inclusao_funcionario_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":inclusao_funcionario_id",$inclusao_funcionario_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+    public static function countByAlteracaoFuncionario($alteracao_funcionario_id){
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE alteracao_funcionario_id = :alteracao_funcionario_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":alteracao_funcionario_id",$alteracao_funcionario_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+    public static function countByRenovacaoFuncionario($renovacao_funcionario_id){
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE renovacao_funcionario_id = :renovacao_funcionario_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":renovacao_funcionario_id",$renovacao_funcionario_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function countByDevolucaoFuncionario($devolucao_funcionario_id){
+        $db = DB::getInstance();
+
+        $sql = 'SELECT count(*) FROM emprestimo WHERE devolucao_funcionario_id = :devolucao_funcionario_id'; 
+
+        $query = $db->prepare($sql);
+        $query->bindValue(":devolucao_funcionario_id",$devolucao_funcionario_id);
+        $query->execute();
+
+        $row = $query->fetch(PDO::FETCH_ASSOC);
+        return $row["count(*)"];
+    }
+
+    public static function estaVencido($emprestimo_id) {
+        $empres = EmprestimoRepository::get($emprestimo_id);
+        $data_atual = new DateTime();
+        $data_formatada = $data_atual->format('Y-m-d');
+        if ($empres->getDataVencimento() < $data_formatada){
+            return true;
+        }
+
+        return false;
     }
 }
