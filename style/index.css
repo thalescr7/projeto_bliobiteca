@@ -12,12 +12,12 @@
   --fonte-destaque: "Angkor", serif;
   --font-secundaria: "Madimi One", sans-serif;
 
-  --cor01: #0D2738;
-  --cor02: #3B5F78;
-  --cor03: #82bbe0;
-  --cor04: #eeddc5;
+  --cor01: #380d0d;
+  --cor02: #783b3b;
+  --cor03: #e08282;
+  --cor04: #eec5c5;
   --cor05: #38260D;
-  --cor-destaque: #f39c12;
+  --cor-destaque: #ddf312;
   --preto-padrao: #1a242f;
 }
 body {

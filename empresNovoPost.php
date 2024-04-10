@@ -16,18 +16,18 @@ if($_POST["dataVencimento"] == '' || $_POST["dataVencimento"] == null){
     header("Location: empresNovo.php");
     exit();
 }
+date_default_timezone_set('America/Sao_Paulo');
 
 $datetime = DateTime::createFromFormat('d/m/Y', $_POST["dataVencimento"]);
 $dateFormatted = $datetime->format('Y-m-d');
 $emprestimo = Factory::emprestimo();
 
-echo $dateFormatted;
+
 $emprestimo->setClienteId($_POST['clienteId']);
 $emprestimo->setLivroId($_POST['livroId']);
 $emprestimo->setDataVencimento($dateFormatted);
 $emprestimo->setInclusaoFuncionarioId($user->getID());
-$emprestimo->setDataInclusao(date('Y-m-d h:i:s'));
-echo $emprestimo->getDataVencimento;
+$emprestimo->setDataInclusao(date('Y-m-d H:i:s'));
 $emprestimo_retorno = EmprestimoRepository::insert($emprestimo);
 
 if($emprestimo_retorno > 0){
@@ -35,5 +35,5 @@ if($emprestimo_retorno > 0){
     exit();
 }
 
-header("Location: empresNovo.php");
+header("Location: empresListAll.php");
     exit();

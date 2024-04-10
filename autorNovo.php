@@ -33,7 +33,7 @@ if (!Auth::isAuthenticated()) {
                             <input type="text" name="nome" id="nome" class="form-control">
                         </div>
                         <div class="md-3">
-                            <button type="submit" class="enviar">Enviar</button>
+                            <button type="submit">Enviar</button>
                         </div>
                     </form>
                 </div>

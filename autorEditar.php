@@ -48,7 +48,7 @@ if (!$autor){
                         </div>
                         <div class="md-3">
                             <input type="hidden" name="id" value="<?php echo $autor->getId();?>">
-                            <button type="submit" class="enviar">Salvar</button>
+                            <button type="submit">Salvar</button>
                         </div>
                     </form>
                 </div>

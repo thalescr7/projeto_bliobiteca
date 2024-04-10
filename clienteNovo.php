@@ -56,7 +56,7 @@ if (!Auth::isAuthenticated()) {
                             <input type='text' name="dataNascimento" id="datepicker" class="form-control nascimento" required placeholder='dd/mm/aaaa'>
                         </div>
                         <div class="md-3">
-                            <button type="submit" class="enviar">Salvar</button>
+                            <button type="submit">Salvar</button>
                         </div>
                     </form>
                 </div>

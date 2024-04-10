@@ -2,7 +2,7 @@
 include_once('include/factory.php');
 
 if (!Auth::isAuthenticated()) {
-    header("Location: index.php");
+    header("Location: login.php");
     exit();
 }
 ?> 
@@ -23,25 +23,25 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php")?>
     <main>
         <section class="container">
-            <h1>Bem vindo a Bliobliteca!</h1>
+            <h1>Bem vindo ao Cabare!</h1>
             <div id="jobs">
-                <div class="block b1" onclick="link('autorList.php')">
+                <div class="block" onclick="link('autorList.php')">
                     <p>Autor</p>
                 </div>
 
-                <div class="block b2" onclick="link('livroList.php')">
+                <div class="block" onclick="link('livroList.php')">
                     <p>Livros</p>
                 </div>
 
-                <div class="block b3" onclick="link('clienteList.php')">
+                <div class="block" onclick="link('clienteList.php')">
                     <p>Clientes</p>
                 </div>
 
-                <div class="block b4" onclick="link('funcioList.php')">
+                <div class="block" onclick="link('funcioList.php')">
                     <p>Funcionarios</p>
                 </div>
 
-                <div class="block b5" onclick="link('empresListAll.php')">
+                <div class="block" onclick="link('empresListAll.php')">
                     <p>Emprestimo</p>
                 </div>
 

@@ -76,7 +76,7 @@ if (!$cliente) {
                         </div>
                         <div class="md-3">
                             <input type="hidden" name="id" value="<?php echo $cliente->getId(); ?>">
-                            <button type="submit" class="enviar">Salvar</button>
+                            <button type="submit">Salvar</button>
                         </div>
                     </form>
                 </div>

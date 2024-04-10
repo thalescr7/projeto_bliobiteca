@@ -46,15 +46,9 @@ if (!Auth::isAuthenticated()) {
                 <td><?php echo $autor->getNome(); ?></td>
                 <td>
                   <a href="autorEditar.php?id=<?php echo $autor->getId(); ?>" id="editar">Editar</a>
-<<<<<<< HEAD
                   <?php if (LivroRepository::contByAutor($autor->getId()) == 0) { ?>
-                    <a href="#" id="deletar">Deletar</a>
+                    <a href="autorExcluir.php?id=<?php echo $autor->getId() ?>" id="deletar">Deletar</a>
                   <?php } ?>
-=======
-                  <?php if(LivroRepository::countByAutor($autor->getId()) == 0){ ?>
-                    <a href="autorExcluir.php?id=<?php echo $autor->getId(); ?>" id="deletar">Deletar</a>
-                  <?php }?>
->>>>>>> bc46ea0b387f5c70586375d201c7cbedf74d1368
                 </td>
               </tr>
             <?php

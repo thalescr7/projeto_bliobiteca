@@ -17,6 +17,8 @@ if (!Auth::isAuthenticated()) {
   <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style/listagensIndx.css">
   <link rel="stylesheet" href="style/index.css">
+  <script src="js/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -31,9 +33,9 @@ if (!Auth::isAuthenticated()) {
         <button><a href="empresListAll.php">Todos</a></button>
         <button><a href="empresListAtivos.php"> Ativos</a></button>
         <button><a href="empresListDevolv.php">Devolvidos</a></button>
-        <button class="ativo"><a href="empresListVencido.php">Vencidos</a></button>
+        <button><a href="empresListVencido.php">Vencidos</a></button>
         <button><a href="empresListRenov.php">Renovados</a></button>
-        <button><a href="empresListNotRenov.php">Não Renovados</a></button>
+        <button class="ativo"><a href="empresListNotRenov.php">Não Renovados</a></button>
       </div>
       <button class="voltar"><a href="index.php">Voltar</a></button>
       <div class="table-responsive">
@@ -50,7 +52,7 @@ if (!Auth::isAuthenticated()) {
           </thead>
           <tbody>
               <?php
-              foreach(EmprestimoRepository::listVencido() as $empres){
+              foreach(EmprestimoRepository::listNotRenovac() as $empres){
               ?>
               <tr>
                 <td><?php echo $empres->getId(); ?></td>
@@ -70,6 +72,10 @@ if (!Auth::isAuthenticated()) {
                 <td>
                 <?php if(EmprestimoRepository::countByDataRenovacao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && $empres->getDataVencimento() >= date('Y-m-d')){ ?>
                   <a href="empresRenovar.php?id=<?php echo $empres->getId(); ?>" class="renovar">Renovar</a>
+                  <?php } ?>
+                  
+                  <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == null && EmprestimoRepository::countByDataDevolucao($empres->getId()) == null && EmprestimoRepository::countByDataRenovacao($empres->getId()) == null){ ?>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" class="deletar">Excluir</a>
                   <?php } ?>
                 </td>
 

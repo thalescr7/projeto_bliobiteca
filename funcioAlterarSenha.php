@@ -55,7 +55,7 @@ if (!$funcionario) {
                         </div>
                         <div class="md-3">
                             <input type="hidden" name="id" value="<?php echo $funcionario->getId(); ?>">
-                            <button type="submit" class="enviar">Alterar</button>
+                            <button type="submit" >Alterar</button>
                         </div>
                     </form>
                 </div>

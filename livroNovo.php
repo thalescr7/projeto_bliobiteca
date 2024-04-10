@@ -59,7 +59,7 @@ if (!Auth::isAuthenticated()) {
                             </select>
                         </div> 
                         <div class="md-3">
-                            <button type="submit" class="enviar">Enviar</button>
+                            <button type="submit" >Enviar</button>
                         </div>
                     </form>
                 </div>

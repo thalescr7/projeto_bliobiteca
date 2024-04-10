@@ -72,12 +72,12 @@ button:hover {
     <div class="container">
         <h1>Seja Bem-Vindo à Biblioteca</h1>
         <p>Faça seu login a baixo com seus dados para entrar na pagina da biblioteca.</p>
-        <form action="login.php" method="post">
-            <label for="Cpf">Cpf:</label>
-            <input type="text" id="username" name="username" required>
+        <form action="logar.php" method="post">
+            <label for="cpf">Cpf:</label>
+            <input type="text" id="cpf" name="cpf" required maxlength="11">
             
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" required>
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" required>
             
             <button type="submit" style="background-color:darkgreen;">Entrar</button>
         </form>
