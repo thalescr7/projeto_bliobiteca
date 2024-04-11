@@ -23,7 +23,7 @@ if (!Auth::isAuthenticated()) {
     <?php include("include/menu.php")?>
     <main>
         <section class="container">
-            <h1>Bem vindo ao Cabare!</h1>
+            <h1>Bem vindo a Biblioteca</h1>
             <div id="jobs">
                 <div class="block" onclick="link('autorList.php')">
                     <p>Autor</p>

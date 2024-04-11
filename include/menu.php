@@ -80,7 +80,7 @@
     <nav>
         <div id="headTitle" onclick="link('index.php')">
             <img src="img/book.png" alt="">
-            <h1>Thales Monobola</h1>
+            <h1>Biblioteca</h1>
         </div>
         <div id="ul">
             <div class="dropdown">

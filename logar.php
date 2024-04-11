@@ -5,11 +5,11 @@ $cpf = $_POST["cpf"];
 $senha = $_POST["senha"];
 
 if($cpf == null || $senha ==null){
-    header("Location: login.php");
+    header("Location: login.php?1");
     exit();
 }
 if($cpf == "" || $senha ==""){
-    header("Location: login.php");
+    header("Location: login.php?2");
     exit();
 }
 $auth = Auth::login($cpf, $senha);

@@ -77,7 +77,7 @@ button:hover {
             <input type="text" id="cpf" name="cpf" required maxlength="11">
             
             <label for="senha">Senha:</label>
-            <input type="password" id="senha" name="senha" required>
+            <input type="text" id="senha" name="senha" required>
             
             <button type="submit" style="background-color:darkgreen;">Entrar</button>
         </form>

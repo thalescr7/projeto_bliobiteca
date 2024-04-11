@@ -78,7 +78,7 @@ if (!Auth::isAuthenticated()) {
                   <?php } ?>
                   
                   <?php if(EmprestimoRepository::countByDataAlteracao($empres->getId()) == 0 && EmprestimoRepository::countByDataDevolucao($empres->getId()) == 0 && EmprestimoRepository::countByDataRenovacao($empres->getId()) == 0){ ?>
-                  <a onclick="popUpExc(<?php echo $empres->getId() ?>)" class="deletar">Excluir</a>
+                  <a href="empresExcluir.php?id=<?php echo $empres->getId(); ?>" class="deletar">Excluir</a>
                   <?php } ?>
 
 
